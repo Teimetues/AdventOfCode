@@ -17,18 +17,18 @@ public class Day1
         {
             position++;
             
-            if (floor < 0 && found == false)
-            {
-                Console.WriteLine("Position of first basement character: "+position);
-                found = true;
-            }
-            
             if (commando == '(')
             {
                 floor++;
             }else if (commando == ')')
             {
                 floor--;
+            }
+            
+            if (floor < 0 && found == false)
+            {
+                Console.WriteLine("Position of first basement character: "+position);
+                found = true;
             }
         }
         Console.WriteLine("Santa's Position: "+floor);
