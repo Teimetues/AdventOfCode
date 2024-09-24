@@ -1,9 +1,11 @@
-﻿namespace Advent2015;
+﻿using Advent2015.Days;
+
+namespace Advent2015;
 
 class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Hello, World!");
+        Day1.SendFloor(Day1.list);
     }
 }
