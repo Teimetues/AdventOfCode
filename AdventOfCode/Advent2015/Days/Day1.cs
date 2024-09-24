@@ -28,10 +28,10 @@ public class Day1
             
             if (floor < 0 && found == false)
             {
-                Console.WriteLine("Position of first basement character: "+position);
+                Console.WriteLine("Charakter der in den Keller geht: "+position);
                 found = true;
             }
         }
-        Console.WriteLine("Santa's Position: "+floor);
+        Console.WriteLine("Santas Position: "+floor);
     }
 }

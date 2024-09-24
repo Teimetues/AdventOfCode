@@ -39,6 +39,17 @@ public class FileHandler
         }
         return File.ReadAllText(filePath);
     }
+
+    public static bool FileExists(string projectName, string className)
+    {
+        string filePath = Path.Combine(_basePath, projectName, $"{className}.txt");
+        
+        if (File.Exists(filePath))
+        {
+            return true;
+        }
+        return false;
+    }
     
     public static void AppendToFile(string projectName, string className, string content)
     {
