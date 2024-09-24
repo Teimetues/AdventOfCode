@@ -4,6 +4,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Advent2015", "Advent2015\Ad
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Advent2016", "Advent2016\Advent2016.csproj", "{0412E7ED-3113-4523-8DDE-95DF124315F1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileManager", "FileManager\FileManager.csproj", "{3ACBE423-C703-4A42-A529-423BF857B69C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdventWPF", "AdventWPF\AdventWPF.csproj", "{9BA09BAE-1FE0-45F0-B12E-CEE1267F71BC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +22,13 @@ Global
 		{0412E7ED-3113-4523-8DDE-95DF124315F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0412E7ED-3113-4523-8DDE-95DF124315F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0412E7ED-3113-4523-8DDE-95DF124315F1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3ACBE423-C703-4A42-A529-423BF857B69C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3ACBE423-C703-4A42-A529-423BF857B69C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3ACBE423-C703-4A42-A529-423BF857B69C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3ACBE423-C703-4A42-A529-423BF857B69C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9BA09BAE-1FE0-45F0-B12E-CEE1267F71BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9BA09BAE-1FE0-45F0-B12E-CEE1267F71BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9BA09BAE-1FE0-45F0-B12E-CEE1267F71BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9BA09BAE-1FE0-45F0-B12E-CEE1267F71BC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
