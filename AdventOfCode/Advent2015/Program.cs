@@ -6,7 +6,8 @@ class Program
 {
     static void Main(string[] args)
     {
-        Day1.SendFloor(Day1.list);
-        Day2.CalculateAmountOfPaper(Day2.PuzzleInput);
+        //Day1.SendFloor(Day1.list);
+        //Day2.CalculateAmountOfPaper(Day2.PuzzleInput);
+        Day3.CountHouses(Day3.PuzzleInput);
     }
 }
