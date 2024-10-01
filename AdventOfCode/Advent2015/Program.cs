@@ -9,6 +9,7 @@ class Program
         //Day1.SendFloor(Day1.list);
         //Day2.CalculateAmountOfPaper(Day2.PuzzleInput);
         //Day3.CountHouses(Day3.PuzzleInput);
-        Day4.MineCoin(Day4.PuzzleInput);
+        //Day4.MineCoin(Day4.PuzzleInput);
+        Day5.GetNiceStringAmount(Day5.PuzzleInput);
     }
 }
