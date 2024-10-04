@@ -1,20 +1,24 @@
-﻿using FileManager;
+﻿using System.Collections;
+using FileManager;
 
 namespace Advent2015.Days;
 
 public class Day1
 {
     static readonly string PuzzleInput = FileHandler.ReadFile("Advent2015", "Day1");
-    public static List<char> list = PuzzleInput.ToCharArray().ToList();
 
     
-    public static void SendFloor(List<char> input)
+    public static string[] GetFloor()
     {
+        List<char> list = PuzzleInput.ToCharArray().ToList();
+        
         int floor = 0;
         int position = 0;
         bool found = false;
 
-        foreach (var commando in input)
+        string basementLocation = "";
+        
+        foreach (var commando in list)
         {
             position++;
             
@@ -28,10 +32,14 @@ public class Day1
             
             if (floor < 0 && found == false)
             {
-                Console.WriteLine("Charakter der in den Keller geht: "+position);
+                basementLocation = "Charakter der in den Keller geht: "+position;
+                Console.WriteLine(basementLocation);
                 found = true;
             }
         }
-        Console.WriteLine("Santas Position: "+floor);
+        string santasPosition = "Santa's Position: "+floor;
+        Console.WriteLine(santasPosition);
+        string[] result = [santasPosition, basementLocation];
+        return result;
     }
 }

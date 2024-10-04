@@ -6,10 +6,11 @@ class Program
 {
     static void Main(string[] args)
     {
-        //Day1.SendFloor(Day1.list);
-        //Day2.CalculateAmountOfPaper(Day2.PuzzleInput);
-        //Day3.CountHouses(Day3.PuzzleInput);
-        //Day4.MineCoin(Day4.PuzzleInput);
-        Day5.GetNiceStringAmount(Day5.PuzzleInput);
+        Day1.GetFloor();
+        Day2.CalculateAmountOfPaper();
+        Day3.CountHouses();
+        Day4.MineCoin();
+        Day5.GetNiceStringAmount();
+        Day6.Lights();
     }
 }

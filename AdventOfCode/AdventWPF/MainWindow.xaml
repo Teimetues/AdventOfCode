@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Adventskalender" Height="600" Width="800" Background="DarkSlateGray">
     <Window.Resources>
-        <!-- Weihnachtsstil -->
+        <!-- Style -->
         <Style TargetType="Button">
             <Setter Property="Background" Value="Red"/>
             <Setter Property="Foreground" Value="White"/>
@@ -27,23 +27,23 @@
             <ColumnDefinition Width="1*"/>
             <ColumnDefinition Width="3*"/>
         </Grid.ColumnDefinitions>
-        <!-- Überschrift -->
+        <!-- Heading -->
         <TextBlock Grid.Row="0" Grid.ColumnSpan="2" Text="Advent of Code 2015" Style="{StaticResource HeaderStyle}"/>
-        <!-- Weihnachtsbaum-->
+        <!-- Tree-->
         <Canvas Grid.Row="1" Grid.Column="0">
             <Polygon Points="125,25 25,400 225,400" Fill="Green"/>
             <Polygon Points="125,75 50,450 200,450" Fill="Green"/>
             <Polygon Points="125,125 75,500 175,500" Fill="Green"/>
             <Rectangle Width="50" Height="100" Fill="Brown" Canvas.Left="100" Canvas.Top="500"/>
         </Canvas>
-        <!-- Adventskalender Türen -->
+        <!-- Buttons -->
         <Canvas Grid.Row="1" Grid.Column="1">
-            <Button Content="1" Width="60" Height="80" Canvas.Left="50" Canvas.Top="50"/>
-            <Button Content="2" Width="50" Height="60" Canvas.Left="120" Canvas.Top="100"/>
-            <Button Content="3" Width="70" Height="80" Canvas.Left="450" Canvas.Top="300"/>
-            <Button Content="4" Width="55" Height="75" Canvas.Left="300" Canvas.Top="120"/>
-            <Button Content="5" Width="65" Height="85" Canvas.Left="400" Canvas.Top="80"/>
-            <Button Content="6" Width="50" Height="70" Canvas.Left="500" Canvas.Top="110"/>
+            <Button Content="1" Command="{Binding Day1Command}" Width="60" Height="80" Canvas.Left="50" Canvas.Top="50"/>
+            <Button Content="2" Command="{Binding Day2Command}" Width="50" Height="60" Canvas.Left="120" Canvas.Top="100"/>
+            <Button Content="3" Command="{Binding Day3Command}" Width="70" Height="80" Canvas.Left="450" Canvas.Top="300"/>
+            <Button Content="4" Command="{Binding Day4Command}" Width="55" Height="75" Canvas.Left="300" Canvas.Top="120"/>
+            <Button Content="5" Command="{Binding Day5Command}" Width="65" Height="85" Canvas.Left="400" Canvas.Top="80"/>
+            <Button Content="6" Command="{Binding Day6Command}" Width="50" Height="70" Canvas.Left="500" Canvas.Top="110"/>
             <Button Content="7" Width="60" Height="80" Canvas.Left="220" Canvas.Top="400"/>
             <Button Content="8" Width="90" Height="80" Canvas.Left="430" Canvas.Top="390"/>
             <Button Content="9" Width="70" Height="90" Canvas.Left="30" Canvas.Top="200"/>
@@ -63,6 +63,6 @@
             <Button Content="23" Width="120" Height="50" Canvas.Left="60" Canvas.Top="420"/>
             <Button Content="24" Width="100" Height="100" Canvas.Left="330" Canvas.Top="280"/>
         </Canvas>
-        <TextBox Grid.Row="2" Grid.ColumnSpan="2" Height="30" Margin="250, 10, 10,10" IsReadOnly="True" Text="Frohe Weihnachten!"/>
+        <ListBox Grid.Row="2" Grid.ColumnSpan="2" Height="50" Margin="250, 10, 10,10" ItemsSource="{Binding Items}"/>
     </Grid>
 </Window>

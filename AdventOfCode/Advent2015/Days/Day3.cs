@@ -5,10 +5,10 @@ namespace Advent2015.Days;
 
 public class Day3
 {
-    public static string PuzzleInput = FileHandler.ReadFile("Advent2015", "Day3");
 
-    public static void CountHouses(string input)
+    public static string[] CountHouses()
     {
+        string input = FileHandler.ReadFile("Advent2015", "Day3");
         int x = 0, y = 0;
         bool santa = true;
         
@@ -27,9 +27,8 @@ public class Day3
             }
             houses.Add((x, y));
         }
-        Console.WriteLine("Häuser ohne RoboSanta: "+houses.Count);
-        
-        
+        string housesWithoutRobo = "Häuser ohne RoboSanta: "+houses.Count;
+        Console.WriteLine(housesWithoutRobo);
         
         int x1 = 0, y1 = 0;
         int x2 = 0, y2 = 0;
@@ -64,6 +63,9 @@ public class Day3
                 santa = true;
             }
         }
-        Console.WriteLine("Häuser mit RoboSanta: "+houses.Count);
+        string housesWithRobo = "Häuser mit RoboSanta: "+houses.Count;
+        Console.WriteLine(housesWithRobo);
+        string[] result = [housesWithoutRobo, housesWithRobo];
+        return result;
     }
 }

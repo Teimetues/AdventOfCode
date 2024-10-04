@@ -5,10 +5,10 @@ namespace Advent2015.Days;
 
 public class Day5
 {
-    public static string PuzzleInput = FileHandler.ReadFile("Advent2015", "Day5");
 
-    public static void GetNiceStringAmount(string input)
+    public static string[] GetNiceStringAmount()
     {
+        string input = FileHandler.ReadFile("Advent2015", "Day5");
         string[] words = input.Split(["\r\n", "\n"], StringSplitOptions.None);
         int sum = 0;
 
@@ -40,7 +40,8 @@ public class Day5
             }
         }
 
-        Console.WriteLine("Anzahl an Netten Wörtern mit Regel 1: " + sum);
+        string rule1 = "Anzahl an Netten Wörtern mit Regel 1: " + sum;
+        Console.WriteLine(rule1);
         sum = 0;
 
         foreach (string word in words)
@@ -57,7 +58,11 @@ public class Day5
                 sum++;
             }
         }
-        Console.WriteLine("Anzahl an Netten Wörtern mit Regel 2: " + sum);
+
+        string rule2 = "Anzahl an Netten Wörtern mit Regel 2: " + sum;
+        Console.WriteLine(rule2);
+        return [rule1, rule2];
+
     }
     
     static bool ContainsPairTwice(string str)

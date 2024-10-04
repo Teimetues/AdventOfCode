@@ -5,10 +5,9 @@ namespace Advent2015.Days;
 public class Day2
 {
     
-    public static string PuzzleInput = FileHandler.ReadFile("Advent2015", "Day2");
-    
-    public static void CalculateAmountOfPaper(string input)
+    public static string[] CalculateAmountOfPaper()
     {
+        string input = FileHandler.ReadFile("Advent2015", "Day2");
         
         string[] gifts = input.Trim().Split(['\n'], StringSplitOptions.RemoveEmptyEntries);
 
@@ -29,12 +28,14 @@ public class Day2
             
             allPaper += allNeed;
         }
-        
-        Console.WriteLine("Benötigtes Papier "+ allPaper);
-        CalculateAmountOfRibbon(gifts);
+
+        string needPaper = "Benötigtes Papier " + allPaper;
+        Console.WriteLine(needPaper);
+        string[] result = [needPaper, CalculateAmountOfRibbon(gifts)];
+        return result;
     }
 
-    public static void CalculateAmountOfRibbon(string[] gifts)
+    public static string CalculateAmountOfRibbon(string[] gifts)
     {
         int allRibbon = 0;
         foreach (string gift in gifts)
@@ -49,10 +50,11 @@ public class Day2
             int volumen = l * w * h;
             
             int allNeed = umfang + volumen;
-            
             allRibbon += allNeed;
         }
-
-        Console.WriteLine("Benötigtes Band "+ allRibbon);
+        
+        string needRibbon = "Benötigtes Band " + allRibbon;
+        Console.WriteLine(needRibbon);
+        return needRibbon;
     }
 }
