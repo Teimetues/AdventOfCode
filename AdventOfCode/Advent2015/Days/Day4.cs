@@ -8,45 +8,34 @@ namespace Advent2015.Days;
 
 public class Day4
 {
-   public static string[] MineCoin()
-   {
-      string key = FileHandler.ReadFile("Advent2015", "Day4");
-      
-      List<string> resultList = new List<string>();
-      
-      using (MD5 md5 = MD5.Create())
-      {
-         int number = 1;
-         int i = 0;
+    public static string[] MineCoin()
+    {
+        string key = FileHandler.ReadFile("Advent2015", "Day4");
+        string[] line = [CalcZeros(5, key), CalcZeros(6, key)];
+        return line;
+    }
 
-         while (true)
-         {
-            string input = key + number;
-            byte[] hashBytes = md5.ComputeHash(Encoding.ASCII.GetBytes(input));
-            string hash = BitConverter.ToString(hashBytes).Replace("-", "").ToLower();
-            
-            if (hash.StartsWith("00000"))
+    public static string CalcZeros(int zeros, string key)
+    {
+        string required = new string('0', zeros);
+        using (MD5 md5 = MD5.Create())
+        {
+            int number = 1;
+
+            while (true)
             {
-               if (i == 0)
-               {
-                  string adventCoins = "AdventCoin 5*0: " + number;
-                  Console.WriteLine(adventCoins);
-                  resultList.Add(adventCoins);
-                  i++;
-               }
-               if (hash.StartsWith("000000"))
-               {
-                  string adventCoins = "AdventCoin 6*0: "+number;
-                  Console.WriteLine(adventCoins);
-                  resultList.Add(adventCoins);
-                  break;
-               }
+                string input = key + number;
+                byte[] hashBytes = md5.ComputeHash(Encoding.ASCII.GetBytes(input));
+                string hash = Convert.ToHexString(hashBytes);
+
+                if (hash.StartsWith(required))
+                {
+                    string adventCoins = $"AdventCoin {zeros}*0: {number}";
+                    Console.WriteLine(adventCoins);
+                    return adventCoins;
+                }
+                number++;
             }
-            number++;
-         }
-      }
-      
-      string[] result = resultList.ToArray();
-      return result;
-   }
+        }
+    }
 }
