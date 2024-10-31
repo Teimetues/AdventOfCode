@@ -18,24 +18,22 @@ public class Day4
     public static string CalcZeros(int zeros, string key)
     {
         string required = new string('0', zeros);
-        using (MD5 md5 = MD5.Create())
+        int number = 1;
+
+        while (true)
         {
-            int number = 1;
+            string input = key + number;
+            byte[] hashBytes = MD5.HashData(Encoding.ASCII.GetBytes(input));
+            string hash = Convert.ToHexString(hashBytes);
 
-            while (true)
+            if (hash.StartsWith(required))
             {
-                string input = key + number;
-                byte[] hashBytes = md5.ComputeHash(Encoding.ASCII.GetBytes(input));
-                string hash = Convert.ToHexString(hashBytes);
-
-                if (hash.StartsWith(required))
-                {
-                    string adventCoins = $"AdventCoin {zeros}*0: {number}";
-                    Console.WriteLine(adventCoins);
-                    return adventCoins;
-                }
-                number++;
+                string adventCoins = $"AdventCoin {zeros}*0: {number}";
+                Console.WriteLine(adventCoins);
+                return adventCoins;
             }
+
+            number++;
         }
     }
 }
