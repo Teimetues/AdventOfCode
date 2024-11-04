@@ -22,17 +22,12 @@ public class Day4
 
         while (true)
         {
-            string input = key + number;
-            byte[] hashBytes = MD5.HashData(Encoding.ASCII.GetBytes(input));
-            string hash = Convert.ToHexString(hashBytes);
-
-            if (hash.StartsWith(required))
+            if (Convert.ToHexString(MD5.HashData(Encoding.ASCII.GetBytes(key + number))).StartsWith(required))
             {
                 string adventCoins = $"AdventCoin {zeros}*0: {number}";
                 Console.WriteLine(adventCoins);
                 return adventCoins;
             }
-
             number++;
         }
     }
