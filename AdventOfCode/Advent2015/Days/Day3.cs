@@ -6,17 +6,25 @@ namespace Advent2015.Days;
 public class Day3
 {
 
-    public static string[] CountHouses()
+    public static string[] SolvePuzzle()
     {
         string input = FileHandler.ReadFile("Advent2015", "Day3");
+        return [CountHousesWithSanta(input),CountHousesWithSantaAndRobo(input)];
+
+    }
+    
+
+    private static string CountHousesWithSanta(string input)
+    {
+        
         int x = 0, y = 0;
-        bool santa = true;
+        var santa = true;
         
         HashSet<(int, int)> houses = new HashSet<(int, int)>();
 
         houses.Add((x, y));
 
-        foreach (char charakter in input)
+        foreach (var charakter in input)
         {
             switch (charakter)
             {
@@ -29,11 +37,16 @@ public class Day3
         }
         string housesWithoutRobo = "Häuser ohne RoboSanta: "+houses.Count;
         Console.WriteLine(housesWithoutRobo);
-        
+        return housesWithoutRobo;
+    }
+
+    private static string CountHousesWithSantaAndRobo(string input)
+    {
         int x1 = 0, y1 = 0;
         int x2 = 0, y2 = 0;
+        bool santa = true;
         
-        houses.Clear();
+        HashSet<(int, int)> houses = new HashSet<(int, int)>();
         houses.Add((x1, y1));
         
         foreach (char charakter in input)
@@ -65,7 +78,6 @@ public class Day3
         }
         string housesWithRobo = "Häuser mit RoboSanta: "+houses.Count;
         Console.WriteLine(housesWithRobo);
-        string[] result = [housesWithoutRobo, housesWithRobo];
-        return result;
+        return housesWithRobo;
     }
 }

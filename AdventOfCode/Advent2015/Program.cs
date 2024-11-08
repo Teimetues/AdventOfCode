@@ -6,11 +6,11 @@ class Program
 {
     static void Main(string[] args)
     {
-        Day1.GetFloor();
-        Day2.CalculateAmountOfPaper();
-        Day3.CountHouses();
-        Day4.MineCoin();
-        Day5.GetNiceStringAmount();
+        Day1.SolvePuzzle();
+        Day2.SolvePuzzle();
+        Day3.SolvePuzzle();
+        Day4.SolvePuzzle();
+        Day5.SolvePuzzle();
         Day6.Lights();
     }
 }

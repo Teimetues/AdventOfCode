@@ -7,39 +7,55 @@ public class Day1
 {
     static readonly string PuzzleInput = FileHandler.ReadFile("Advent2015", "Day1");
 
-    
-    public static string[] GetFloor()
+    public static string[] SolvePuzzle()
     {
-        List<char> list = PuzzleInput.ToCharArray().ToList();
+        var list = PuzzleInput.ToCharArray().ToList();
+        return [GetFloor(list), GetBasementEntry(list)];
+
+    }
+    private static string GetFloor(List<char> list)
+    {
+        int floor = 0;
         
+        foreach (var commando in list)
+        {
+            switch (commando)
+            {
+                case '(':
+                    floor++;
+                    break;
+                case ')':
+                    floor--;
+                    break;
+            }
+        }
+        return "Santa's Position: "+floor;
+    }
+
+    private static string GetBasementEntry(List<char> list)
+    {
         int floor = 0;
         int position = 0;
-        bool found = false;
-
-        string basementLocation = "";
         
         foreach (var commando in list)
         {
             position++;
-            
-            if (commando == '(')
+            switch (commando)
             {
-                floor++;
-            }else if (commando == ')')
-            {
-                floor--;
+                case '(':
+                    floor++;
+                    break;
+                case ')':
+                    floor--;
+                    break;
             }
-            
-            if (floor < 0 && found == false)
+            if (floor < 0)
             {
-                basementLocation = "Charakter der in den Keller geht: "+position;
+                String basementLocation = "Charakter der in den Keller geht: "+position;
                 Console.WriteLine(basementLocation);
-                found = true;
+                return basementLocation;
             }
         }
-        string santasPosition = "Santa's Position: "+floor;
-        Console.WriteLine(santasPosition);
-        string[] result = [santasPosition, basementLocation];
-        return result;
+        return "Charakter der in den Keller geht ist nicht vorhanden.";
     }
 }

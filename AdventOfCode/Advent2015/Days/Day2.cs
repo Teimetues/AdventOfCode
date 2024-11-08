@@ -4,15 +4,16 @@ namespace Advent2015.Days;
 
 public class Day2
 {
-    
-    public static string[] CalculateAmountOfPaper()
-    {
-        string input = FileHandler.ReadFile("Advent2015", "Day2");
-        
-        string[] gifts = input.Trim().Split(['\n'], StringSplitOptions.RemoveEmptyEntries);
 
+    public static string[] SolvePuzzle()
+    {
+        string[] gifts = FileHandler.ReadFile("Advent2015", "Day2").Trim().Split(['\n'], StringSplitOptions.RemoveEmptyEntries);
+        return [CalculateAmountOfPaper(gifts), CalculateAmountOfRibbon(gifts)];
+    }
+    
+    private static string CalculateAmountOfPaper(string[] gifts)
+    {
         int allPaper = 0;
-        
         foreach (string gift in gifts)
         {
             string[] dimensions = gift.Split('x');
@@ -28,14 +29,12 @@ public class Day2
             
             allPaper += allNeed;
         }
-
         string needPaper = "Benötigtes Papier " + allPaper;
         Console.WriteLine(needPaper);
-        string[] result = [needPaper, CalculateAmountOfRibbon(gifts)];
-        return result;
+        return needPaper;
     }
 
-    public static string CalculateAmountOfRibbon(string[] gifts)
+    private static string CalculateAmountOfRibbon(string[] gifts)
     {
         int allRibbon = 0;
         foreach (string gift in gifts)
@@ -44,15 +43,12 @@ public class Day2
             int l = int.Parse(dimensionen[0]);
             int w = int.Parse(dimensionen[1]);
             int h = int.Parse(dimensionen[2]);
-            
             int umfang = 2 * (Math.Min(l + w, Math.Min(w + h, h + l)));
-            
             int volumen = l * w * h;
             
             int allNeed = umfang + volumen;
             allRibbon += allNeed;
         }
-        
         string needRibbon = "Benötigtes Band " + allRibbon;
         Console.WriteLine(needRibbon);
         return needRibbon;

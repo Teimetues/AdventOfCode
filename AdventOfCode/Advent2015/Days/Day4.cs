@@ -8,17 +8,17 @@ namespace Advent2015.Days;
 
 public class Day4
 {
-    public static string[] MineCoin()
+    public static string[] SolvePuzzle()
     {
-        string key = FileHandler.ReadFile("Advent2015", "Day4");
+        var key = FileHandler.ReadFile("Advent2015", "Day4");
         string[] line = [CalcZeros(5, key), CalcZeros(6, key)];
         return line;
     }
 
-    public static string CalcZeros(int zeros, string key)
+    private static string CalcZeros(int zeros, string key)
     {
-        string required = new string('0', zeros);
-        int number = 1;
+        var required = new string('0', zeros);
+        var number = 1;
 
         while (true)
         {

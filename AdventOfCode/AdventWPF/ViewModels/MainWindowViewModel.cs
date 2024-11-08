@@ -72,11 +72,11 @@ public class MainWindowViewModel : INotifyPropertyChanged
     public DelegateCommand Day7Command { get; set; }
 
 
-    private void UpdateDay1() { UpdateDay(Day1.GetFloor());} 
-    private void UpdateDay2() { UpdateDay(Day2.CalculateAmountOfPaper());}
-    private void UpdateDay3() { UpdateDay(Day3.CountHouses());}
-    private void UpdateDay4() { UpdateDay(Day4.MineCoin());}
-    private void UpdateDay5() { UpdateDay(Day5.GetNiceStringAmount());}
+    private void UpdateDay1() { UpdateDay(Day1.SolvePuzzle());} 
+    private void UpdateDay2() { UpdateDay(Day2.SolvePuzzle());}
+    private void UpdateDay3() { UpdateDay(Day3.SolvePuzzle());}
+    private void UpdateDay4() { UpdateDay(Day4.SolvePuzzle());}
+    private void UpdateDay5() { UpdateDay(Day5.SolvePuzzle());}
     private void UpdateDay6() { UpdateDay(Day6.Lights());}
     //private void UpdateDay7() { UpdateDay(Day7);}
 

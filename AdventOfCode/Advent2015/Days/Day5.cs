@@ -6,13 +6,17 @@ namespace Advent2015.Days;
 public class Day5
 {
 
-    public static string[] GetNiceStringAmount()
+    public static string[] SolvePuzzle()
     {
-        string input = FileHandler.ReadFile("Advent2015", "Day5");
-        string[] words = input.Split(["\r\n", "\n"], StringSplitOptions.None);
-        int sum = 0;
+        string[] input = FileHandler.ReadFile("Advent2015", "Day5").Split(["\r\n", "\n"], StringSplitOptions.None);
+        return [RuleOne(input), RuleTwo(input)];
+    }
 
-        foreach (string word in words)
+    private static string RuleOne(string[] input)
+    {
+        var sum = 0;
+
+        foreach (string word in input)
         {
             bool isNice = true;
             int vowelsCount = word.Count(c => "aeiuo".Contains(c));
@@ -42,9 +46,14 @@ public class Day5
 
         string rule1 = "Anzahl an Netten Wörtern mit Regel 1: " + sum;
         Console.WriteLine(rule1);
-        sum = 0;
+        return rule1;
+    }
+    
+    private static string RuleTwo(string[] input)
+    {
+        var sum = 0;
 
-        foreach (string word in words)
+        foreach (string word in input)
         {
             bool isNice = ContainsPairTwice(word);
 
@@ -61,8 +70,7 @@ public class Day5
 
         string rule2 = "Anzahl an Netten Wörtern mit Regel 2: " + sum;
         Console.WriteLine(rule2);
-        return [rule1, rule2];
-
+        return rule2;
     }
     
     static bool ContainsPairTwice(string str)
@@ -70,7 +78,7 @@ public class Day5
         for (int i = 0; i < str.Length - 1; i++)
         {
             string pair = str.Substring(i, 2);
-            if (str.IndexOf(pair, i + 2) != -1)
+            if (str.IndexOf(pair, i + 2, StringComparison.Ordinal) != -1)
             {
                 return true;
             }
